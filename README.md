@@ -58,7 +58,6 @@ Consulta [`CHANGELOG.md`](./CHANGELOG.md) para ver el detalle de cambios entre v
 | `cookies` | Leer y borrar cookies del navegador. |
 | `tabs` | Conocer qué pestañas hay abiertas para decidir si hay otras pestañas del mismo sitio. |
 | `storage` | Guardar la preferencia activado/desactivado y estadísticas. |
-| `alarms` | Reservado para mantenimiento periódico futuro. |
 | `notifications` | Mostrar la notificación opcional tras cada limpieza. |
 | `<all_urls>` | Necesario para poder inspeccionar/borrar cookies de cualquier sitio. |
 
@@ -83,6 +82,6 @@ Consulta [`CHANGELOG.md`](./CHANGELOG.md) para ver el detalle de cambios entre v
 ## Próximos pasos posibles
 
 - Whitelist/blacklist de dominios
-- Limpieza periódica con `chrome.alarms`
+- Limpieza periódica con `chrome.alarms` (requiere añadir el permiso en una versión futura)
 - Throttle de notificaciones (máx. una por minuto para no spamear)
 - Exportar estadísticas

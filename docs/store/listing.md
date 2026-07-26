@@ -51,7 +51,7 @@ For example: if you have example.com and youtube.com open, and you close the las
 
 ## Permissions, in plain English
 
-- cookies, tabs, storage, alarms, notifications, <all_urls> — all used solely to deliver the described functionality. See the privacy policy for the full breakdown.
+- cookies, tabs, storage, notifications, <all_urls> — all used solely to deliver the described functionality. See the privacy policy for the full breakdown.
 
 ## Open source & privacy
 
@@ -116,7 +116,7 @@ Por ejemplo: si tienes example.com y youtube.com abiertos, y cierras la última 
 
 ## Permisos, en lenguaje claro
 
-- cookies, tabs, storage, alarms, notifications, <all_urls> — todos se usan exclusivamente para la funcionalidad descrita. Consulta la política de privacidad para el desglose completo.
+- cookies, tabs, storage, notifications, <all_urls> — todos se usan exclusivamente para la funcionalidad descrita. Consulta la política de privacidad para el desglose completo.
 
 ## Código abierto y privacidad
 
@@ -143,8 +143,6 @@ Copia y pega estos textos en los campos de justificación:
 - **tabs**: "Required to determine whether the user has other tabs open on the same first-party domain. The extension only reads the URL of open tabs to compute the registrable domain (eTLD+1); it does not read page content, history, or form data."
 
 - **storage**: "Required to persist user preferences (extension on/off, notification on/off) and local statistics (total cookies cleaned, last cleaned site, timestamp). Stored via the standard chrome.storage API. Never transmitted to any server."
-
-- **alarms**: "Reserved for future scheduled cleanup tasks. Currently unused but kept in the manifest to avoid a permission re-review when the feature is implemented."
 
 - **notifications**: "Optional. Used to inform the user when a cleanup has been performed, only if the user has enabled the notification setting in the options page. The extension is fully functional with notifications disabled."
 

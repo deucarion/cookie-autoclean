@@ -2,6 +2,17 @@
 
 Todos los cambios notables de Cookie AutoClean se documentan aquí. El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2026-07-27
+
+### Eliminado
+- **Permiso `alarms`**: se ha retirado del `manifest.json`. El permiso estaba reservado para una futura limpieza periódica que nunca se implementó, y mantenerlo sin uso comprometía la superficie de permisos de la extensión. Si en el futuro se añade la funcionalidad, se reintroducirá el permiso en una nueva versión.
+
+### Cambiado
+- Documentación: `README.md`, `docs/privacy/index.md` y `docs/store/listing.md` actualizados para reflejar la retirada del permiso.
+
+### Notas técnicas
+- El incremento de versión es patch (1.1.0 → 1.1.1) porque el cambio no añade ni modifica comportamiento de cara al usuario — solo reduce permisos.
+
 ## [1.1.0] - 2026-07-27
 
 ### Añadido
@@ -30,5 +41,6 @@ Todos los cambios notables de Cookie AutoClean se documentan aquí. El formato s
 - Icono en tres tamaños (16, 48, 128) generado programáticamente.
 - Documentación: `README.md` con instrucciones de instalación, permisos, estructura, notas de implementación y limitaciones.
 
+[1.1.1]: #111---2026-07-27
 [1.1.0]: #110---2026-07-27
 [1.0.0]: #100---2026-07-27

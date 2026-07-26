@@ -2,7 +2,7 @@
 
 **Effective date:** 2026-07-27
 **Last updated:** 2026-07-27
-**Extension version:** 1.1.0
+**Extension version:** 1.1.1
 
 Cookie AutoClean ("the extension", "we", "our") is a browser extension for Google Chrome and Chromium-based browsers. This page explains what data the extension handles, why, and what we do with it.
 
@@ -49,7 +49,6 @@ The extension requests the following Chrome permissions. Each is used only for t
 - **`cookies`** — Read and remove cookies from your browser. Required for the core functionality.
 - **`tabs`** — List your open tabs to determine whether other tabs are open on the same site. The extension reads tab URLs only; it does not read page content, history, or form data.
 - **`storage`** — Save your settings (on/off, notification preference) and local statistics. Stored via the standard `chrome.storage` API.
-- **`alarms`** — Reserved for future scheduled cleanup tasks. Currently unused.
 - **`notifications`** — Show an optional desktop notification after a cleanup, only if you have enabled that setting in the options page.
 - **`<all_urls>` (host permission)** — Required because the extension must be able to operate on any website you visit, not just a predefined list. You can close the last tab of any site at any time.
 
