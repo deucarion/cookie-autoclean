@@ -1,0 +1,81 @@
+{
+  "ext_name": {
+    "message": "Cookie AutoClean"
+  },
+  "ext_description": {
+    "message": "Automatically deletes third-party cookies when you close the last tab of a website. Keeps cookies of any site you still have open."
+  },
+  "popup_hint": {
+    "message": "Cleans third-party cookies when you close the last tab of a site."
+  },
+  "popup_status": {
+    "message": "Auto-cleaning"
+  },
+  "popup_enabled": {
+    "message": "Enabled"
+  },
+  "popup_disabled": {
+    "message": "Disabled"
+  },
+  "popup_options": {
+    "message": "Open settings"
+  },
+  "stats_total": {
+    "message": "Total cleaned"
+  },
+  "stats_last": {
+    "message": "Last cleaned site"
+  },
+  "stats_when": {
+    "message": "When"
+  },
+  "stats_kept": {
+    "message": "Cookies kept last time"
+  },
+  "options_title": {
+    "message": "Cookie AutoClean — Settings"
+  },
+  "options_h1": {
+    "message": "Cookie AutoClean — Settings"
+  },
+  "options_subtitle": {
+    "message": "Clean third-party cookies automatically, only after you close the last tab of a site."
+  },
+  "options_enable": {
+    "message": "Enable auto-cleaning"
+  },
+  "options_enable_desc": {
+    "message": "When enabled, third-party cookies are removed after you close the last tab of a website."
+  },
+  "options_notify": {
+    "message": "Show notification when cleaning"
+  },
+  "options_notify_desc": {
+    "message": "Display a brief notification with how many cookies were removed."
+  },
+  "options_stats_h": {
+    "message": "Statistics"
+  },
+  "options_reset": {
+    "message": "Reset counter"
+  },
+  "options_about_h": {
+    "message": "About"
+  },
+  "options_about_body": {
+    "message": "When you close the last tab of a website, Cookie AutoClean removes third-party cookies from your browser, while keeping cookies of any site you still have open."
+  },
+  "options_version": {
+    "message": "Version 1.1.0"
+  },
+  "notif_title": {
+    "message": "Cookie AutoClean"
+  },
+  "notif_message": {
+    "message": "Removed $COUNT$ third-party cookies after closing $SITE$.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" },
+      "site":  { "content": "$2", "example": "example.com" }
+    }
+  }
+}

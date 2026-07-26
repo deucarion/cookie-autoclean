@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="../icons/48.png" alt="" width="32" height="32">
+      <h1 data-i18n="ext_name">Cookie AutoClean</h1>
+    </header>
+
+    <p class="hint" data-i18n="popup_hint">
+      Cleans third-party cookies when you close the last tab of a site.
+    </p>
+
+    <section class="row">
+      <label class="switch">
+        <input type="checkbox" id="enableToggle">
+        <span class="slider"></span>
+      </label>
+      <div class="row-text">
+        <strong data-i18n="popup_status">Auto-cleaning is</strong>
+        <span id="status" class="badge">…</span>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat">
+        <div class="stat-value" id="totalCleaned">0</div>
+        <div class="stat-label" data-i18n="stats_total">Total cleaned</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="lastSite">—</div>
+        <div class="stat-label" data-i18n="stats_last">Last cleaned site</div>
+      </div>
+    </section>
+
+    <footer>
+      <a href="#" id="openOptions" data-i18n="popup_options">Open settings</a>
+    </footer>
+  </div>
+  <script src="popup.js" type="module"></script>
+</body>
+</html>

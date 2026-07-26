@@ -1,0 +1,81 @@
+{
+  "ext_name": {
+    "message": "Cookie AutoClean"
+  },
+  "ext_description": {
+    "message": "Elimina automáticamente las cookies de terceros al cerrar la última pestaña de un sitio. Conserva las cookies de cualquier sitio que aún tengas abierto."
+  },
+  "popup_hint": {
+    "message": "Limpia las cookies de terceros al cerrar la última pestaña de un sitio."
+  },
+  "popup_status": {
+    "message": "Limpieza automática"
+  },
+  "popup_enabled": {
+    "message": "Activada"
+  },
+  "popup_disabled": {
+    "message": "Desactivada"
+  },
+  "popup_options": {
+    "message": "Abrir ajustes"
+  },
+  "stats_total": {
+    "message": "Total eliminadas"
+  },
+  "stats_last": {
+    "message": "Último sitio limpiado"
+  },
+  "stats_when": {
+    "message": "Cuándo"
+  },
+  "stats_kept": {
+    "message": "Cookies conservadas (última vez)"
+  },
+  "options_title": {
+    "message": "Cookie AutoClean — Ajustes"
+  },
+  "options_h1": {
+    "message": "Cookie AutoClean — Ajustes"
+  },
+  "options_subtitle": {
+    "message": "Limpia las cookies de terceros automáticamente, solo después de cerrar la última pestaña de un sitio."
+  },
+  "options_enable": {
+    "message": "Activar limpieza automática"
+  },
+  "options_enable_desc": {
+    "message": "Al activarla, las cookies de terceros se eliminan al cerrar la última pestaña de un sitio web."
+  },
+  "options_notify": {
+    "message": "Mostrar notificación al limpiar"
+  },
+  "options_notify_desc": {
+    "message": "Muestra una breve notificación indicando cuántas cookies se han eliminado."
+  },
+  "options_stats_h": {
+    "message": "Estadísticas"
+  },
+  "options_reset": {
+    "message": "Restablecer contador"
+  },
+  "options_about_h": {
+    "message": "Acerca de"
+  },
+  "options_about_body": {
+    "message": "Cuando cierras la última pestaña de un sitio web, Cookie AutoClean elimina las cookies de terceros del navegador, conservando las cookies de cualquier sitio que aún tengas abierto."
+  },
+  "options_version": {
+    "message": "Versión 1.1.0"
+  },
+  "notif_title": {
+    "message": "Cookie AutoClean"
+  },
+  "notif_message": {
+    "message": "Se han eliminado $COUNT$ cookies de terceros al cerrar $SITE$.",
+    "placeholders": {
+      "count": { "content": "$1", "example": "12" },
+      "site":  { "content": "$2", "example": "example.com" }
+    }
+  }
+}

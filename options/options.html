@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="page">
+    <header>
+      <img src="../icons/48.png" alt="" width="40" height="40">
+      <div>
+        <h1 data-i18n="options_h1">Cookie AutoClean — Settings</h1>
+        <p class="subtitle" data-i18n="options_subtitle">
+          Clean third-party cookies automatically, only after you close the last tab of a site.
+        </p>
+      </div>
+    </header>
+
+    <section class="card">
+      <label class="setting">
+        <div>
+          <div class="setting-title" data-i18n="options_enable">Enable auto-cleaning</div>
+          <div class="setting-desc" data-i18n="options_enable_desc">
+            When enabled, third-party cookies are removed after you close the last tab of a website.
+          </div>
+        </div>
+        <span class="switch">
+          <input type="checkbox" id="enableToggle">
+          <span class="slider"></span>
+        </span>
+      </label>
+
+      <label class="setting">
+        <div>
+          <div class="setting-title" data-i18n="options_notify">Show notification when cleaning</div>
+          <div class="setting-desc" data-i18n="options_notify_desc">
+            Display a brief notification with how many cookies were removed.
+          </div>
+        </div>
+        <span class="switch">
+          <input type="checkbox" id="notifyToggle">
+          <span class="slider"></span>
+        </span>
+      </label>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="options_stats_h">Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-value" id="totalCleaned">0</div>
+          <div class="stat-label" data-i18n="stats_total">Total cleaned</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value small" id="lastSite">—</div>
+          <div class="stat-label" data-i18n="stats_last">Last cleaned site</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value small" id="lastTime">—</div>
+          <div class="stat-label" data-i18n="stats_when">When</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="lastKept">0</div>
+          <div class="stat-label" data-i18n="stats_kept">Cookies kept last time</div>
+        </div>
+      </div>
+      <button id="resetBtn" class="btn-secondary" data-i18n="options_reset">Reset counter</button>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="options_about_h">About</h2>
+      <p data-i18n="options_about_body">
+        When you close the last tab of a website, Cookie AutoClean removes
+        third-party cookies from your browser, while keeping cookies of any
+        site you still have open.
+      </p>
+      <p class="version" data-i18n="options_version">Version 1.0.0</p>
+    </section>
+  </div>
+  <script src="options.js" type="module"></script>
+</body>
+</html>
