@@ -1,0 +1,4 @@
+# Normalize text files to LF on commit/checkout.
+# Suppresses "LF will be replaced by CRLF" warnings on Windows
+# and keeps the repo consistent for cross-platform contributors.
+* text=auto eol=lf

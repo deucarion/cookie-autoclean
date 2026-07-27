@@ -81,7 +81,7 @@ The extension's source code is publicly available. You can audit it to verify th
 
 If you have questions, concerns, or requests regarding this privacy policy or the extension's data practices, please contact:
 
-**Email:** your-email@example.com *(replace with your real address before publishing)*
+**Email:** deucarion@proton.me
 
 We aim to respond within 7 business days.
 

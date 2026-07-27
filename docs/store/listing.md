@@ -56,7 +56,7 @@ For example: if you have example.com and youtube.com open, and you close the las
 ## Open source & privacy
 
 Source code: public repository (link below).
-Privacy policy: https://your-username.github.io/your-repo/privacy/
+Privacy policy: https://deucarion.github.io/cookie-autoclean/privacy/
 
 Made in Spain.
 ```
@@ -121,7 +121,7 @@ Por ejemplo: si tienes example.com y youtube.com abiertos, y cierras la última 
 ## Código abierto y privacidad
 
 Código fuente: repositorio público (enlace abajo).
-Política de privacidad: https://your-username.github.io/your-repo/privacy/
+Política de privacidad: https://deucarion.github.io/cookie-autoclean/privacy/
 
 Hecho en España.
 ```
@@ -181,8 +181,8 @@ Copia y pega estos textos en los campos de justificación:
 - [ ] Capturas de pantalla listas (mínimo 1, recomendado 3)
 - [ ] Icono promocional 440×280 listo
 - [ ] Zip de la extensión generado (cookie-autoclean-1.1.0.zip o versión actualizada)
-- [ ] Email de contacto actualizado en la política de privacidad (reemplazar `your-email@example.com`)
-- [ ] URL de la política de privacidad real, no placeholder
+- [x] Email de contacto actualizado en la política de privacidad (`deucarion@proton.me`)
+- [x] URL de la política de privacidad real: `https://deucarion.github.io/cookie-autoclean/privacy/`
 - [ ] Categoría, idioma, descripción revisados
 - [ ] Cuestionario de Privacy practices rellenado con las justificaciones de arriba
 - [ ] Versión del manifest.json correcta
