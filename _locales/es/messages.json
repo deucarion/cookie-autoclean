@@ -66,7 +66,7 @@
     "message": "Cuando cierras la última pestaña de un sitio web, Cookie AutoClean elimina las cookies de terceros del navegador, conservando las cookies de cualquier sitio que aún tengas abierto."
   },
   "options_version": {
-    "message": "Versión 1.1.1"
+    "message": "Versión 1.1.2"
   },
   "notif_title": {
     "message": "Cookie AutoClean"

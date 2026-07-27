@@ -2,6 +2,15 @@
 
 Todos los cambios notables de Cookie AutoClean se documentan aquí. El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.2] - 2026-07-27
+
+### Corregido
+- **Falsos positivos al limpiar cookies SSO**: cuando se cierra la última pestaña de un sitio que utiliza un dominio hermano para autenticación (por ejemplo, `youtube.com` cierra sesión porque la extensión borraba las cookies de `google.com`), la extensión ahora respeta las cookies con `SameSite=Lax` y `SameSite=Strict`, que Chrome considera de primera parte. También respeta las cookies particionadas (`partitionKey.topLevelSite` presente), que ya están aisladas por sitio.
+
+### Notas técnicas
+- El incremento de versión es patch (1.1.1 → 1.1.2) porque es un refinamiento del comportamiento de limpieza existente, no una nueva funcionalidad. La intención del usuario ("solo se borran cookies de terceros") ahora se cumple de forma más fiel: la nueva lógica replica lo que hace Chrome cuando tiene activada la opción "Bloquear cookies de terceros" en su configuración.
+- La propiedad `partitionKey` del objeto `chrome.cookies.Cookie` requiere Chrome 132+. En versiones anteriores, la extensión sigue funcionando correctamente: simplemente trata las cookies particionadas como de primera parte, lo cual es conservador y seguro.
+
 ## [1.1.1] - 2026-07-27
 
 ### Eliminado
@@ -41,6 +50,7 @@ Todos los cambios notables de Cookie AutoClean se documentan aquí. El formato s
 - Icono en tres tamaños (16, 48, 128) generado programáticamente.
 - Documentación: `README.md` con instrucciones de instalación, permisos, estructura, notas de implementación y limitaciones.
 
+[1.1.2]: #112---2026-07-27
 [1.1.1]: #111---2026-07-27
 [1.1.0]: #110---2026-07-27
 [1.0.0]: #100---2026-07-27
