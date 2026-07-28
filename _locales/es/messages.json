@@ -66,7 +66,48 @@
     "message": "Cuando cierras la última pestaña de un sitio web, Cookie AutoClean elimina las cookies de terceros del navegador, conservando las cookies de cualquier sitio que aún tengas abierto."
   },
   "options_version": {
-    "message": "Versión 1.1.2"
+    "message": "Versión 1.2.0"
+  },
+  "options_deleted_h": {
+    "message": "Cookies eliminadas en la última limpieza"
+  },
+  "options_deleted_empty": {
+    "message": "Todavía no se ha ejecutado ninguna limpieza, o la última no eliminó ninguna cookie."
+  },
+  "options_deleted_context": {
+    "message": "Eliminadas al cerrar $SITE$ el $WHEN$.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" },
+      "when": { "content": "$2", "example": "28/07/2026, 22:34:00" }
+    }
+  },
+  "options_deleted_truncated": {
+    "message": "Mostrando las primeras $SHOWN$ de $TOTAL$ cookies eliminadas.",
+    "placeholders": {
+      "shown":  { "content": "$1", "example": "200" },
+      "total":  { "content": "$2", "example": "437" }
+    }
+  },
+  "col_domain": {
+    "message": "Dominio"
+  },
+  "col_name": {
+    "message": "Nombre"
+  },
+  "col_path": {
+    "message": "Ruta"
+  },
+  "col_samesite": {
+    "message": "SameSite"
+  },
+  "col_secure": {
+    "message": "Seguro"
+  },
+  "col_session": {
+    "message": "Sesión"
+  },
+  "col_partitioned": {
+    "message": "Particionada"
   },
   "notif_title": {
     "message": "Cookie AutoClean"

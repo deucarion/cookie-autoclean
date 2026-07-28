@@ -66,7 +66,48 @@
     "message": "When you close the last tab of a website, Cookie AutoClean removes third-party cookies from your browser, while keeping cookies of any site you still have open."
   },
   "options_version": {
-    "message": "Version 1.1.2"
+    "message": "Version 1.2.0"
+  },
+  "options_deleted_h": {
+    "message": "Cookies deleted in the last cleanup"
+  },
+  "options_deleted_empty": {
+    "message": "No cleanup has been run yet, or the last cleanup removed nothing."
+  },
+  "options_deleted_context": {
+    "message": "Removed when you closed $SITE$ at $WHEN$.",
+    "placeholders": {
+      "site": { "content": "$1", "example": "example.com" },
+      "when": { "content": "$2", "example": "7/28/2026, 10:34:00 PM" }
+    }
+  },
+  "options_deleted_truncated": {
+    "message": "Showing the first $SHOWN$ of $TOTAL$ cookies removed.",
+    "placeholders": {
+      "shown":  { "content": "$1", "example": "200" },
+      "total":  { "content": "$2", "example": "437" }
+    }
+  },
+  "col_domain": {
+    "message": "Domain"
+  },
+  "col_name": {
+    "message": "Name"
+  },
+  "col_path": {
+    "message": "Path"
+  },
+  "col_samesite": {
+    "message": "SameSite"
+  },
+  "col_secure": {
+    "message": "Secure"
+  },
+  "col_session": {
+    "message": "Session"
+  },
+  "col_partitioned": {
+    "message": "Partitioned"
   },
   "notif_title": {
     "message": "Cookie AutoClean"

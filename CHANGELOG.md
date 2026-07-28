@@ -2,6 +2,25 @@
 
 Todos los cambios notables de Cookie AutoClean se documentan aquí. El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-07-28
+
+### Añadido
+- **Listado de cookies eliminadas en la última limpieza**: la página de ajustes ahora muestra una nueva tarjeta con una tabla compacta de todas las cookies que se eliminaron en la limpieza más reciente. Por cada cookie se ve: dominio, nombre, ruta, atributo `SameSite`, si era segura (`Secure`), si era de sesión y si estaba particionada (con su `topLevelSite` cuando aplica). La lista lleva encima una línea de contexto que recuerda qué sitio cerraste y a qué hora.
+- **Estado vacío elegante**: si todavía no se ha ejecutado ninguna limpieza —o la última no eliminó nada— la tarjeta muestra un mensaje suave en vez de la tabla. No hay layout roto en el primer arranque.
+- **Aviso de truncado**: si una limpieza supera el tope interno de 200 entradas, se muestra un pie de aviso indicando que se están enseñando solo las primeras N de M. La persistencia ya recorta en `state.js`; el front solo informa.
+- **Cadenas i18n** nuevas: `options_deleted_h`, `options_deleted_empty`, `options_deleted_context` (con placeholders `$SITE$` y `$WHEN$`), `options_deleted_truncated` (con `$SHOWN$` y `$TOTAL$`), y los nombres de columna `col_domain` / `col_name` / `col_path` / `col_samesite` / `col_secure` / `col_session` / `col_partitioned`. Disponibles en `es` y `en`.
+
+### Cambiado
+- `lib/cleanup.js` ahora devuelve también `deletedList` (resumen por cookie, sin el `value` por privacidad) además de los contadores `deleted` / `kept` / `total`. La lista se construye solo con las cookies cuya llamada a `chrome.cookies.remove` devolvió un resultado exitoso, así que su longitud coincide siempre con `deleted`.
+- `lib/state.js` añade la clave `lastDeleted` (array) a las estadísticas locales y la función `setLastDeleted()`. La lista persistida se capa a 200 entradas. `resetStats()` también limpia la lista.
+- `background/service-worker.js` siempre llama a `setLastEvent()` y `setLastDeleted()` tras cada limpieza (incluso si `deleted === 0`), para que el panel refleje siempre la realidad del último cierre y no quede una lista fantasma de un evento anterior.
+
+### Notas técnicas
+- El incremento es minor (1.1.2 → 1.2.0) porque añade una funcionalidad visible para el usuario (la tabla) sin romper el comportamiento existente. La extensión 1.2.0 sigue limpiando exactamente igual que la 1.1.2; lo único nuevo es la superficie de inspección.
+- **Privacidad**: la lista persistida **no incluye el `value` de la cookie**. Solo metadatos identificativos (dominio, nombre, ruta, atributos). Esto es deliberado: el valor puede contener tokens de sesión, códigos OAuth u otras credenciales que no queremos que queden en `chrome.storage.local` después de que la cookie ya se ha borrado.
+- **Tamaño**: cada entrada ocupa ~150–250 bytes. Con el tope de 200, el uso máximo de `chrome.storage.local` para esta lista es ~50 KB, muy por debajo de la cuota de 5 MB.
+- **Compatibilidad**: la tabla se renderiza con `textContent`, así que nombres de cookie con caracteres especiales (`<`, `>`, comillas) se muestran como texto literal sin riesgo de inyección. El cambio en `cleanup.js` mantiene la compatibilidad con el contrato anterior (`deleted`/`kept`/`total`) y solo añade un cuarto campo.
+
 ## [1.1.2] - 2026-07-27
 
 ### Corregido
@@ -50,6 +69,7 @@ Todos los cambios notables de Cookie AutoClean se documentan aquí. El formato s
 - Icono en tres tamaños (16, 48, 128) generado programáticamente.
 - Documentación: `README.md` con instrucciones de instalación, permisos, estructura, notas de implementación y limitaciones.
 
+[1.2.0]: #120---2026-07-28
 [1.1.2]: #112---2026-07-27
 [1.1.1]: #111---2026-07-27
 [1.1.0]: #110---2026-07-27

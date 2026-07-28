@@ -68,6 +68,33 @@
     </section>
 
     <section class="card">
+      <h2 data-i18n="options_deleted_h">Cookies deleted in the last cleanup</h2>
+      <p id="deletedContext" class="deleted-context"></p>
+
+      <div class="deleted-wrap" id="deletedWrap" hidden>
+        <table class="deleted-table" id="deletedTable">
+          <thead>
+            <tr>
+              <th data-i18n="col_domain">Domain</th>
+              <th data-i18n="col_name">Name</th>
+              <th data-i18n="col_path">Path</th>
+              <th data-i18n="col_samesite">SameSite</th>
+              <th data-i18n="col_secure">Secure</th>
+              <th data-i18n="col_session">Session</th>
+              <th data-i18n="col_partitioned">Partitioned</th>
+            </tr>
+          </thead>
+          <tbody id="deletedTbody"></tbody>
+        </table>
+        <p class="deleted-truncated" id="deletedTruncated" hidden></p>
+      </div>
+
+      <p class="empty-state" id="deletedEmpty" hidden data-i18n="options_deleted_empty">
+        No cleanup has been run yet, or the last cleanup removed nothing.
+      </p>
+    </section>
+
+    <section class="card">
       <h2 data-i18n="options_about_h">About</h2>
       <p data-i18n="options_about_body">
         When you close the last tab of a website, Cookie AutoClean removes

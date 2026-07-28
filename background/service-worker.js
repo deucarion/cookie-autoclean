@@ -6,7 +6,7 @@
 
 import { getRegistrableDomain } from '../lib/domain.js';
 import { deleteThirdPartyCookies, getActiveFirstParties } from '../lib/cleanup.js';
-import { getSettings, addCleaned, setLastEvent } from '../lib/state.js';
+import { getSettings, addCleaned, setLastEvent, setLastDeleted } from '../lib/state.js';
 
 // Cache of tabId -> last known URL. The tab object is gone by the time
 // onRemoved fires, so we capture URLs as tabs navigate and read them here.
@@ -55,12 +55,19 @@ chrome.tabs.onRemoved.addListener(async (tabId) => {
 
   if (result.deleted > 0) {
     await addCleaned(result.deleted);
-    await setLastEvent({
-      firstParty,
-      deleted: result.deleted,
-      kept: result.kept,
-      at: Date.now()
-    });
+  }
+  await setLastEvent({
+    firstParty,
+    deleted: result.deleted,
+    kept: result.kept,
+    at: Date.now()
+  });
+  // Persist the list of removed cookies so the options page can show them.
+  // Always set (even if empty) so a previous run's list doesn't linger when
+  // the latest cleanup happened to remove nothing.
+  await setLastDeleted(result.deletedList || []);
+
+  if (result.deleted > 0) {
     console.log(
       `[Cookie AutoClean] Closed last tab of ${firstParty}. ` +
       `Removed ${result.deleted} third-party cookies (kept ${result.kept}).`

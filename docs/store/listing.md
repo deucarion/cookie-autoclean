@@ -37,7 +37,7 @@ For example: if you have example.com and youtube.com open, and you close the las
 - Preserves cookies of any site you still have open.
 - Enable/disable from the popup or the options page.
 - Optional desktop notification after each cleanup.
-- Statistics: total cookies cleaned, last site cleaned.
+- Statistics: total cookies cleaned, last site cleaned, and a detailed table of the cookies removed in the most recent cleanup (domain, name, path, `SameSite`, `Secure`, session, partitioned — values are never stored).
 - Open source: read the code, audit the privacy claims.
 - Available in English and Spanish.
 
@@ -102,7 +102,7 @@ Por ejemplo: si tienes example.com y youtube.com abiertos, y cierras la última 
 - Conserva las cookies de cualquier sitio que aún tengas abierto.
 - Activar/desactivar desde el popup o la página de opciones.
 - Notificación de escritorio opcional tras cada limpieza.
-- Estadísticas: total de cookies eliminadas, último sitio limpiado.
+- Estadísticas: total de cookies eliminadas, último sitio limpiado y tabla detallada de las cookies eliminadas en la última limpieza (dominio, nombre, ruta, `SameSite`, `Secure`, sesión, particionada — los valores nunca se almacenan).
 - Código abierto: audita las afirmaciones de privacidad.
 - Disponible en español e inglés.
 
@@ -142,7 +142,7 @@ Copia y pega estos textos en los campos de justificación:
 
 - **tabs**: "Required to determine whether the user has other tabs open on the same first-party domain. The extension only reads the URL of open tabs to compute the registrable domain (eTLD+1); it does not read page content, history, or form data."
 
-- **storage**: "Required to persist user preferences (extension on/off, notification on/off) and local statistics (total cookies cleaned, last cleaned site, timestamp). Stored via the standard chrome.storage API. Never transmitted to any server."
+- **storage**: "Required to persist user preferences (extension on/off, notification on/off) and local statistics (total cookies cleaned, last cleaned site, timestamp, and a short list of metadata for the cookies removed in the most recent cleanup — domain, name, path, `SameSite`, `Secure`, session, partition info). Stored via the standard chrome.storage API. The cookie values themselves are NEVER stored. Never transmitted to any server."
 
 - **notifications**: "Optional. Used to inform the user when a cleanup has been performed, only if the user has enabled the notification setting in the options page. The extension is fully functional with notifications disabled."
 
@@ -180,7 +180,7 @@ Copia y pega estos textos en los campos de justificación:
 - [ ] Política de privacidad subida y URL pública funcional
 - [ ] Capturas de pantalla listas (mínimo 1, recomendado 3)
 - [ ] Icono promocional 440×280 listo
-- [ ] Zip de la extensión generado (cookie-autoclean-1.1.0.zip o versión actualizada)
+- [ ] Zip de la extensión generado (cookie-autoclean-1.2.0.zip o versión actualizada)
 - [x] Email de contacto actualizado en la política de privacidad (`deucarion@proton.me`)
 - [x] URL de la política de privacidad real: `https://deucarion.github.io/cookie-autoclean/privacy/`
 - [ ] Categoría, idioma, descripción revisados

@@ -1,8 +1,8 @@
 # Privacy Policy — Cookie AutoClean
 
 **Effective date:** 2026-07-27
-**Last updated:** 2026-07-27
-**Extension version:** 1.1.2
+**Last updated:** 2026-07-28
+**Extension version:** 1.2.0
 
 Cookie AutoClean ("the extension", "we", "our") is a browser extension for Google Chrome and Chromium-based browsers. This page explains what data the extension handles, why, and what we do with it.
 
@@ -18,6 +18,7 @@ Cookie AutoClean ("the extension", "we", "our") is a browser extension for Googl
 | URLs of your open tabs | To determine whether other tabs are open on the same first-party domain, so the extension knows whether to trigger a cleanup | Read transiently. Never stored or transmitted. |
 | Your preferences (extension on/off, notifications on/off) | To remember your settings between sessions | Stored locally in `chrome.storage.sync` (synced between your devices if Chrome Sync is enabled). Never transmitted to any server. |
 | Statistics (total cookies cleaned, last cleaned site) | To display them in the popup and options page | Stored locally in `chrome.storage.local`. Never transmitted to any server. |
+| A short list of metadata for the cookies removed in the most recent cleanup (domain, name, path, `SameSite`, `Secure`, session/expires, partition info) — **without the cookie value** | To display the deleted-cookies table in the options page, so you can audit what was actually removed | Stored locally in `chrome.storage.local`, capped at 200 entries. Cleared when you press "Reset counter" in the options page. Never transmitted to any server. |
 
 ## What the extension does NOT do
 
