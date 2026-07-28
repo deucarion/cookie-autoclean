@@ -53,6 +53,12 @@
   "options_notify_desc": {
     "message": "Muestra una breve notificación indicando cuántas cookies se han eliminado."
   },
+  "options_keep_session": {
+    "message": "Conservar cookies de sesión"
+  },
+  "options_keep_session_desc": {
+    "message": "Si un dominio tiene alguna cookie de sesión, se conservan también todas las demás cookies de ese dominio (no solo la de sesión). Recomendado."
+  },
   "options_stats_h": {
     "message": "Estadísticas"
   },
@@ -66,7 +72,7 @@
     "message": "Cuando cierras la última pestaña de un sitio web, Cookie AutoClean elimina las cookies de terceros del navegador, conservando las cookies de cualquier sitio que aún tengas abierto."
   },
   "options_version": {
-    "message": "Versión 1.2.3"
+    "message": "Versión 1.3.0"
   },
   "options_deleted_h": {
     "message": "Cookies eliminadas en la última limpieza"

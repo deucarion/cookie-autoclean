@@ -1,10 +1,11 @@
 // options/options.js
 import { applyI18n } from '../lib/i18n.js';
-import { getSettings, getStats, resetStats } from '../lib/state.js';
+import { getSettings, getStats, resetStats, setKeepSessionCookies } from '../lib/state.js';
 
 const $ = (id) => document.getElementById(id);
 const enableToggle = $('enableToggle');
 const notifyToggle = $('notifyToggle');
+const keepSessionToggle = $('keepSessionToggle');
 const totalCleaned = $('totalCleaned');
 const lastSite = $('lastSite');
 const lastTime = $('lastTime');
@@ -110,6 +111,7 @@ async function refresh() {
   const settings = await getSettings();
   enableToggle.checked = !!settings.enabled;
   notifyToggle.checked = !!settings.notify;
+  keepSessionToggle.checked = !!settings.keepSessionCookies;
 
   const stats = await getStats();
   totalCleaned.textContent = stats.totalCleaned || 0;
@@ -125,6 +127,9 @@ enableToggle.addEventListener('change', () => {
 });
 notifyToggle.addEventListener('change', () => {
   chrome.storage.sync.set({ notify: notifyToggle.checked });
+});
+keepSessionToggle.addEventListener('change', async () => {
+  await setKeepSessionCookies(keepSessionToggle.checked);
 });
 resetBtn.addEventListener('click', async () => {
   await resetStats();

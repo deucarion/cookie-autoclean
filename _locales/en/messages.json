@@ -53,6 +53,12 @@
   "options_notify_desc": {
     "message": "Display a brief notification with how many cookies were removed."
   },
+  "options_keep_session": {
+    "message": "Keep session cookies"
+  },
+  "options_keep_session_desc": {
+    "message": "If a domain has a session cookie, all of that domain's cookies are kept on cleanup — not just the session one. Recommended."
+  },
   "options_stats_h": {
     "message": "Statistics"
   },
@@ -66,7 +72,7 @@
     "message": "When you close the last tab of a website, Cookie AutoClean removes third-party cookies from your browser, while keeping cookies of any site you still have open."
   },
   "options_version": {
-    "message": "Version 1.2.3"
+    "message": "Version 1.3.0"
   },
   "options_deleted_h": {
     "message": "Cookies deleted in the last cleanup"

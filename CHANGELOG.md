@@ -2,6 +2,21 @@
 
 Todos los cambios notables de Cookie AutoClean se documentan aquí. El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-07-29
+
+### Añadido
+- **Toggle "Conservar cookies de sesión" en la página de opciones**: nueva preferencia `keepSessionCookies` (almacenada en `chrome.storage.sync`, sincronizada entre dispositivos del usuario). Por defecto está **activada**. Cuando lo está, la lógica de limpieza funciona a nivel de dominio: si un dominio tiene al menos una cookie de sesión, **todas** las cookies de ese dominio (incluidas las persistentes y no-sesión) se preservan. Esto es una red de seguridad para sitios que están usando cookies de sesión activamente — borrar un "hermano" persistente de una cookie de sesión es más probable que rompa algo (estado de UI, carritos, autenticación implícita) que lo que protege. Si el usuario quiere un comportamiento más agresivo, puede desactivar el toggle y volver al esquema de "solo se borra lo que es true third-party".
+- **Cadenas i18n `options_keep_session` y `options_keep_session_desc`**: título y descripción del toggle. Disponibles en `es` y `en`.
+
+### Cambiado
+- `lib/state.js` añade la clave `keepSessionCookies: true` a `SYNC_DEFAULTS` y la función `setKeepSessionCookies()`.
+- `lib/cleanup.js` precalcula el conjunto de dominios protegidos por sesión (una sola pasada sobre `allCookies` cuando el toggle está activo) y lo aplica como un check de "in use" adicional, antes del filtro de "isTrueThirdParty". Las llamadas a `getSettings`, `getActiveFirstParties` y `chrome.cookies.getAll` se ejecutan en paralelo con `Promise.all` para no penalizar el rendimiento.
+
+### Notas técnicas
+- El incremento es minor (1.2.3 → 1.3.0) porque añade una funcionalidad visible para el usuario (un toggle nuevo en la página de opciones con un comportamiento de limpieza nuevo). El comportamiento por defecto cambia: con el toggle activo (que es el estado por defecto en nuevas instalaciones), más cookies sobreviven a la limpieza — la diferencia observable es que la sesión de sitios como Steam ya no se ve amenazada aunque haya cookies persistentes en el mismo dominio.
+- **Para usuarios existentes que actualizan**: el nuevo `keepSessionCookies` se inicializa como `true` la primera vez que la extensión se carga con la versión 1.3.0 (porque `getSettings()` fusiona `SYNC_DEFAULTS` con lo que hay en `chrome.storage.sync` y, si no hay valor guardado, usa el default). Si alguien quiere agresividad total, tiene que entrar a la página de opciones y desactivar el toggle.
+- **Privacidad**: este cambio no introduce ningún dato nuevo que la extensión maneje. Solo consulta los campos ya disponibles en los `chrome.cookies.Cookie` existentes (en concreto `expirationDate` para detectar cookies de sesión). No se transmite nada a ningún servidor.
+
 ## [1.2.3] - 2026-07-29
 
 ### Corregido
@@ -98,6 +113,7 @@ Todos los cambios notables de Cookie AutoClean se documentan aquí. El formato s
 - Icono en tres tamaños (16, 48, 128) generado programáticamente.
 - Documentación: `README.md` con instrucciones de instalación, permisos, estructura, notas de implementación y limitaciones.
 
+[1.3.0]: #130---2026-07-29
 [1.2.3]: #123---2026-07-29
 [1.2.2]: #122---2026-07-29
 [1.2.1]: #121---2026-07-28
