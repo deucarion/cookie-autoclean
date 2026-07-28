@@ -66,7 +66,7 @@
     "message": "When you close the last tab of a website, Cookie AutoClean removes third-party cookies from your browser, while keeping cookies of any site you still have open."
   },
   "options_version": {
-    "message": "Version 1.2.0"
+    "message": "Version 1.2.1"
   },
   "options_deleted_h": {
     "message": "Cookies deleted in the last cleanup"

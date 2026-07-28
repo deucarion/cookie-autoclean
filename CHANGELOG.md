@@ -2,6 +2,16 @@
 
 Todos los cambios notables de Cookie AutoClean se documentan aquí. El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.1] - 2026-07-28
+
+### Corregido
+- **Falsos positivos al limpiar cookies de subdominios propios**: la función `isFirstParty()` en `lib/domain.js` tenía los operandos de la condición `endsWith` intercambiados. Resultado: las cookies de subdominios del mismo sitio que se estaba cerrando (por ejemplo `store.steampowered.com`, `login.steampowered.com`, `help.steampowered.com` al cerrar `store.steampowered.com`) caían al filtro de "third-party real" y se borraban aunque fueran claramente de primera parte. El fix es una sola línea: `rd.endsWith('.' + cd)` → `cd.endsWith('.' + rd)`.
+- **Placeholders de i18n sin expandir en la página de opciones**: el contexto sobre la última limpieza (`"Eliminadas al cerrar ... el ..."`) se renderizaba con los placeholders eliminados en silencio por Chrome (aparecía como `"Eliminadas al cerrar el ."` con doble espacio). Causa: las cadenas de mensaje usaban placeholders con nombre (`$SITE$`, `$WHEN$`) pero la declaración `placeholders.content` decía `$1`/`$2`, así que Chrome los descartaba al no reconocerlos. Mismo bug latente en `notif_message` (la notificación nativa habría mostrado placeholders en crudo si el toggle estuviese activado). Fix: unificar todos los mensajes con placeholders a la sintaxis posicional `$1`/`$2`, que es lo que ya esperaba el call site de `notif_message` y con la que el `content` ya estaba alineado.
+
+### Notas técnicas
+- El incremento es patch (1.2.0 → 1.2.1) porque ambos son arreglos de bugs, no funcionalidades nuevas. La superficie de cara al usuario es exactamente la misma que en 1.2.0, solo que ahora funciona como se esperaba.
+- El bump de versión también cumple un propósito práctico: en extensiones cargadas en modo "unpacked", Chrome cachea los archivos de `_locales/` y no los invalida con un simple `chrome.runtime.reload()`. Al cambiar la versión en el manifest, Chrome relee los locales del disco la próxima vez que se carga la extensión, lo que permite que el fix de i18n se materialice sin necesidad de desinstalar y reinstalar manualmente.
+
 ## [1.2.0] - 2026-07-28
 
 ### Añadido
@@ -69,6 +79,7 @@ Todos los cambios notables de Cookie AutoClean se documentan aquí. El formato s
 - Icono en tres tamaños (16, 48, 128) generado programáticamente.
 - Documentación: `README.md` con instrucciones de instalación, permisos, estructura, notas de implementación y limitaciones.
 
+[1.2.1]: #121---2026-07-28
 [1.2.0]: #120---2026-07-28
 [1.1.2]: #112---2026-07-27
 [1.1.1]: #111---2026-07-27
