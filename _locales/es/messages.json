@@ -66,7 +66,7 @@
     "message": "Cuando cierras la última pestaña de un sitio web, Cookie AutoClean elimina las cookies de terceros del navegador, conservando las cookies de cualquier sitio que aún tengas abierto."
   },
   "options_version": {
-    "message": "Versión 1.2.1"
+    "message": "Versión 1.2.2"
   },
   "options_deleted_h": {
     "message": "Cookies eliminadas en la última limpieza"
@@ -77,15 +77,15 @@
   "options_deleted_context": {
     "message": "Eliminadas al cerrar $1 el $2.",
     "placeholders": {
-      "site": { "content": "$1", "example": "example.com" },
-      "when": { "content": "$2", "example": "28/07/2026, 22:34:00" }
+      "1": { "content": "$1", "example": "example.com" },
+      "2": { "content": "$2", "example": "28/07/2026, 22:34:00" }
     }
   },
   "options_deleted_truncated": {
     "message": "Mostrando las primeras $1 de $2 cookies eliminadas.",
     "placeholders": {
-      "shown":  { "content": "$1", "example": "200" },
-      "total":  { "content": "$2", "example": "437" }
+      "1":  { "content": "$1", "example": "200" },
+      "2":  { "content": "$2", "example": "437" }
     }
   },
   "col_domain": {
@@ -115,8 +115,8 @@
   "notif_message": {
     "message": "Se han eliminado $1 cookies de terceros al cerrar $2.",
     "placeholders": {
-      "count": { "content": "$1", "example": "12" },
-      "site":  { "content": "$2", "example": "example.com" }
+      "1": { "content": "$1", "example": "12" },
+      "2": { "content": "$2", "example": "example.com" }
     }
   }
 }

@@ -2,6 +2,15 @@
 
 Todos los cambios notables de Cookie AutoClean se documentan aquí. El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.2] - 2026-07-29
+
+### Corregido
+- **Placeholders de i18n seguían sin renderizarse**: la versión 1.2.1 cambió los placeholders en los mensajes a sintaxis posicional (`$1`/`$2`) y alineó el `placeholders.content` correspondiente, pero las **claves** del objeto `placeholders` seguían siendo nombres descriptivos (`site`, `when`, `shown`, `total`, `count`). Chrome extrae el nombre del placeholder del propio mensaje (`$1` → nombre `1`, `$SITE$` → nombre `SITE`) y lo usa como clave para buscar en el objeto `placeholders`. Como las claves declaradas no coincidían con los nombres extraídos, Chrome descartaba los placeholders en silencio. Resultado visible: el contexto sobre la última limpieza seguía apareciendo como `"Eliminadas al cerrar  el ."` (con doble espacio) en lugar de `"Eliminadas al cerrar example.com el 28/07/2026, 23:50:00."`. El bug se reproducía tanto en Vivaldi como en Chrome con instalación limpia, descartando problemas de caché. Fix: renombrar las claves del objeto `placeholders` a `1` y `2` para que coincidan con los nombres extraídos de los marcadores `$1`/`$2` del message.
+
+### Notas técnicas
+- El incremento es patch (1.2.1 → 1.2.2) porque es un refinamiento del mismo fix, no una nueva funcionalidad. El comportamiento esperado es idéntico al de 1.2.0 y 1.2.1, simplemente ahora la sustitución de placeholders se materializa en runtime.
+- A partir de esta versión, **cada cambio de código irá acompañado de un bump de versión** (incluso para fixes que no alteren comportamiento de cara al usuario) para que sea fácil saber de un vistazo si Vivaldi/Chrome ha recargado la última versión del código, sin tener que mirar el `git log` o añadir logs de diagnóstico.
+
 ## [1.2.1] - 2026-07-28
 
 ### Corregido
@@ -79,6 +88,7 @@ Todos los cambios notables de Cookie AutoClean se documentan aquí. El formato s
 - Icono en tres tamaños (16, 48, 128) generado programáticamente.
 - Documentación: `README.md` con instrucciones de instalación, permisos, estructura, notas de implementación y limitaciones.
 
+[1.2.2]: #122---2026-07-29
 [1.2.1]: #121---2026-07-28
 [1.2.0]: #120---2026-07-28
 [1.1.2]: #112---2026-07-27

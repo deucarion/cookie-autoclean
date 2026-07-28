@@ -20,3 +20,7 @@ $RECYCLE.BIN/
 # Node (not used, but defensive)
 node_modules/
 package-lock.json
+
+# Temporary files used to work around shell-escaping issues when
+# passing commit messages to `git commit -F`. Never commit these.
+.commit-msg.txt

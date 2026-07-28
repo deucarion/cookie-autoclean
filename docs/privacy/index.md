@@ -1,8 +1,8 @@
 # Privacy Policy — Cookie AutoClean
 
 **Effective date:** 2026-07-27
-**Last updated:** 2026-07-28
-**Extension version:** 1.2.1
+**Last updated:** 2026-07-29
+**Extension version:** 1.2.2
 
 Cookie AutoClean ("the extension", "we", "our") is a browser extension for Google Chrome and Chromium-based browsers. This page explains what data the extension handles, why, and what we do with it.
 
