@@ -50,10 +50,10 @@ function renderDeletedList(list, lastEvent) {
   if (hasList && lastEvent && lastEvent.firstParty) {
     const when = formatTime(lastEvent.at);
     const tmpl = chrome.i18n.getMessage('options_deleted_context') ||
-      'Removed when you closed $SITE$ at $WHEN$.';
+      'Removed when you closed $1 at $2.';
     deletedContext.textContent = tmpl
-      .replace('$SITE$', lastEvent.firstParty)
-      .replace('$WHEN$', when);
+      .replace('$1', lastEvent.firstParty)
+      .replace('$2', when);
   } else {
     deletedContext.textContent = '';
   }
@@ -98,10 +98,10 @@ function renderDeletedList(list, lastEvent) {
   // If the list hit the cap in state.js, warn the user we only show a slice.
   if (list.length >= LAST_DELETED_MAX && lastEvent && lastEvent.deleted > list.length) {
     const tmpl = chrome.i18n.getMessage('options_deleted_truncated') ||
-      'Showing the first $SHOWN$ of $TOTAL$ cookies removed.';
+      'Showing the first $1 of $2 cookies removed.';
     deletedTruncated.textContent = tmpl
-      .replace('$SHOWN$', String(list.length))
-      .replace('$TOTAL$', String(lastEvent.deleted));
+      .replace('$1', String(list.length))
+      .replace('$2', String(lastEvent.deleted));
     deletedTruncated.hidden = false;
   } else {
     deletedTruncated.hidden = true;

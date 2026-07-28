@@ -75,14 +75,14 @@
     "message": "No cleanup has been run yet, or the last cleanup removed nothing."
   },
   "options_deleted_context": {
-    "message": "Removed when you closed $SITE$ at $WHEN$.",
+    "message": "Removed when you closed $1 at $2.",
     "placeholders": {
       "site": { "content": "$1", "example": "example.com" },
       "when": { "content": "$2", "example": "7/28/2026, 10:34:00 PM" }
     }
   },
   "options_deleted_truncated": {
-    "message": "Showing the first $SHOWN$ of $TOTAL$ cookies removed.",
+    "message": "Showing the first $1 of $2 cookies removed.",
     "placeholders": {
       "shown":  { "content": "$1", "example": "200" },
       "total":  { "content": "$2", "example": "437" }
@@ -113,7 +113,7 @@
     "message": "Cookie AutoClean"
   },
   "notif_message": {
-    "message": "Removed $COUNT$ third-party cookies after closing $SITE$.",
+    "message": "Removed $1 third-party cookies after closing $2.",
     "placeholders": {
       "count": { "content": "$1", "example": "12" },
       "site":  { "content": "$2", "example": "example.com" }

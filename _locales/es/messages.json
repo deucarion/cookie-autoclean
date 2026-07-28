@@ -75,14 +75,14 @@
     "message": "Todavía no se ha ejecutado ninguna limpieza, o la última no eliminó ninguna cookie."
   },
   "options_deleted_context": {
-    "message": "Eliminadas al cerrar $SITE$ el $WHEN$.",
+    "message": "Eliminadas al cerrar $1 el $2.",
     "placeholders": {
       "site": { "content": "$1", "example": "example.com" },
       "when": { "content": "$2", "example": "28/07/2026, 22:34:00" }
     }
   },
   "options_deleted_truncated": {
-    "message": "Mostrando las primeras $SHOWN$ de $TOTAL$ cookies eliminadas.",
+    "message": "Mostrando las primeras $1 de $2 cookies eliminadas.",
     "placeholders": {
       "shown":  { "content": "$1", "example": "200" },
       "total":  { "content": "$2", "example": "437" }
@@ -113,7 +113,7 @@
     "message": "Cookie AutoClean"
   },
   "notif_message": {
-    "message": "Se han eliminado $COUNT$ cookies de terceros al cerrar $SITE$.",
+    "message": "Se han eliminado $1 cookies de terceros al cerrar $2.",
     "placeholders": {
       "count": { "content": "$1", "example": "12" },
       "site":  { "content": "$2", "example": "example.com" }
