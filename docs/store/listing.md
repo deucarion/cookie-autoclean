@@ -180,7 +180,7 @@ Copia y pega estos textos en los campos de justificación:
 - [ ] Política de privacidad subida y URL pública funcional
 - [ ] Capturas de pantalla listas (mínimo 1, recomendado 3)
 - [ ] Icono promocional 440×280 listo
-- [ ] Zip de la extensión generado (cookie-autoclean-1.2.2.zip o versión actualizada)
+- [ ] Zip de la extensión generado (cookie-autoclean-1.2.3.zip o versión actualizada)
 - [x] Email de contacto actualizado en la política de privacidad (`deucarion@proton.me`)
 - [x] URL de la política de privacidad real: `https://deucarion.github.io/cookie-autoclean/privacy/`
 - [ ] Categoría, idioma, descripción revisados

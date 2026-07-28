@@ -2,6 +2,16 @@
 
 Todos los cambios notables de Cookie AutoClean se documentan aquí. El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.3] - 2026-07-29
+
+### Corregido
+- **Sustitución de placeholders de i18n en la página de opciones**: aunque la 1.2.2 dejó bien declarados los placeholders en el JSON (claves `1`/`2` con `content` `$1`/`$2`), el código JS seguía usando un `.replace()` manual sobre el resultado de `chrome.i18n.getMessage(...)` sin args, que en este caso Chrome devuelve con los placeholders ya **eliminados** (en lugar de preservados como `$1`/`$2`). Por eso veíamos `"Eliminadas al cerrar  el ."` con doble espacio. El call site de `notif_message` ya usaba el patrón correcto (`getMessage(name, [arg1, arg2])` con array posicional) y por eso esa notificación sí funcionaba. Se aplica el mismo patrón a `options_deleted_context` y `options_deleted_truncated`, y se sustituye el `.replace()` manual por un fallback con template literals por si `getMessage` devolviera la cadena vacía (mensaje no encontrado en el JSON).
+
+### Notas técnicas
+- El incremento es patch (1.2.2 → 1.2.3) porque es un refinamiento del mismo fix; el comportamiento esperado es idéntico al de 1.2.0.
+- Con este release, **todas** las llamadas a `chrome.i18n.getMessage` con placeholders de la extensión siguen el mismo patrón: `getMessage(name, [arg1, arg2, ...])` con un array posicional. No hay `.replace()` manuales en ninguna parte.
+- Lección de proceso: cuando algo "debería funcionar" según la documentación pero no funciona, vale la pena comparar con un call site que sí funciona (`notif_message` en este caso) en vez de seguir tocando los mismos archivos.
+
 ## [1.2.2] - 2026-07-29
 
 ### Corregido
@@ -88,6 +98,7 @@ Todos los cambios notables de Cookie AutoClean se documentan aquí. El formato s
 - Icono en tres tamaños (16, 48, 128) generado programáticamente.
 - Documentación: `README.md` con instrucciones de instalación, permisos, estructura, notas de implementación y limitaciones.
 
+[1.2.3]: #123---2026-07-29
 [1.2.2]: #122---2026-07-29
 [1.2.1]: #121---2026-07-28
 [1.2.0]: #120---2026-07-28

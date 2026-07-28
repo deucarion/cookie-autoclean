@@ -49,11 +49,10 @@ function renderDeletedList(list, lastEvent) {
   // Context line: site + timestamp of the cleanup that produced this list.
   if (hasList && lastEvent && lastEvent.firstParty) {
     const when = formatTime(lastEvent.at);
-    const tmpl = chrome.i18n.getMessage('options_deleted_context') ||
-      'Removed when you closed $1 at $2.';
-    deletedContext.textContent = tmpl
-      .replace('$1', lastEvent.firstParty)
-      .replace('$2', when);
+    deletedContext.textContent = chrome.i18n.getMessage('options_deleted_context', [
+      lastEvent.firstParty,
+      when
+    ]) || `Removed when you closed ${lastEvent.firstParty} at ${when}.`;
   } else {
     deletedContext.textContent = '';
   }
@@ -97,11 +96,10 @@ function renderDeletedList(list, lastEvent) {
 
   // If the list hit the cap in state.js, warn the user we only show a slice.
   if (list.length >= LAST_DELETED_MAX && lastEvent && lastEvent.deleted > list.length) {
-    const tmpl = chrome.i18n.getMessage('options_deleted_truncated') ||
-      'Showing the first $1 of $2 cookies removed.';
-    deletedTruncated.textContent = tmpl
-      .replace('$1', String(list.length))
-      .replace('$2', String(lastEvent.deleted));
+    deletedTruncated.textContent = chrome.i18n.getMessage('options_deleted_truncated', [
+      String(list.length),
+      String(lastEvent.deleted)
+    ]) || `Showing the first ${list.length} of ${lastEvent.deleted} cookies removed.`;
     deletedTruncated.hidden = false;
   } else {
     deletedTruncated.hidden = true;
